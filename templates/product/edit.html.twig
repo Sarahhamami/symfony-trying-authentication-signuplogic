@@ -1,0 +1,115 @@
+
+
+{% extends 'admin.html.twig' %}
+{% block title %}New Category{% endblock %}
+
+{% block body %}
+<style>
+       .reset-styles {
+        all: unset; /* Remove all inherited styles */
+        display: inline-block; /* Ensure it behaves like an inline-block element */
+        width: 100%; /* Full width of the container */
+        padding: 10px; /* Add some padding */
+        border: 2px solid #ccc; /* Light grey border */
+        background-color: #fff; /* White background */
+        font-size: 16px; /* Increase font size */
+        box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+        outline: none; /* Remove outline */
+        border-radius: 5px; /* Rounded corners */
+        transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    }
+
+        .reset-styles:focus {
+            border-color: #38b2ac; /*focus color*/
+            box-shadow: 0 0 8px rgba(102, 175, 233, .6); 
+             background-color: #f0f8ff;/* Add a shadow on focus */
+        }
+    </style>
+
+  <div class="bg-gray-100 flex-1 p-6 md:mt-16"> 
+
+    <!-- congrats & summary -->
+    <div class="grid grid-cols-3 lg:grid-cols-1 gap-5">
+      <!-- congrats -->
+
+<!-- end congrats -->
+      <div class="card p-0 overflow-hidden col-span-2 lg:col-span-1 flex flex-row lg:flex-col">
+
+</div>
+
+
+      
+    </div>
+    <!-- end congrats & summary -->
+
+   
+    <!-- end status -->
+
+    <!-- best seller & traffic -->
+    <div class="grid grid-cols-1 lg:grid-cols-1 gap-5 mt-5">
+      <div class="card">
+
+    <div class="card-body">
+        <div class="flex flex-row justify-between items-center">
+            <h1 class="font-extrabold text-lg">Update Product </h1>
+            
+        </div>
+    {{ form_start(form, {'attr': {'novalidate':'novalidate'}}) }}
+        <table class="table-auto w-full mt-5 text-right">
+    
+            <thead>
+                <tr>
+                    <td class="py-4 font-extrabold text-sm text-left">Name</td>
+                    <td class="py-4 font-extrabold text-sm">Description</td>
+                    <td class="py-4 font-extrabold text-sm">Category</td>
+                </tr>
+            </thead>
+    
+            <tbody>
+                
+                <!-- item -->
+                <tr class="">
+                    <td class="py-4 text-sm text-gray-600 flex flex-row items-center text-left">
+                       
+                      {{ form_widget(form.name, {'attr': {'class': 'form-control reset-styles', 'placeholder': 'Name'}}) }}
+
+
+                    </td>
+                    <td class="py-4 text-xs text-gray-600"> 
+                        <div class="mb-3">
+                            {{ form_widget(form.description, { 'attr': {'class': 'form-control reset-styles', 'placeholder': 'Description'}}) }}
+                        </div>
+                    </td>
+                    <td class="py-4 text-xs text-gray-600"> 
+                        <div class="mb-3">
+                            {{ form_widget(form.category, { 'attr': {'class': 'form-control reset-styles', 'placeholder': 'Category'}}) }}
+                        </div>
+                    </td>
+       
+    
+        </td>
+        </tr>
+          
+            </tbody>
+    
+        </table> <div class="text-center">
+            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">{{ button_label|default('Save') }}</button>
+        </div>
+    {{ form_end(form) }} 
+    </div>
+</div>
+     
+
+   
+
+</div> 
+          
+    </div>
+    <!-- end best seller & traffic -->
+        
+
+  </div>
+  <!-- end content -->
+
+</div>
+{% endblock %}

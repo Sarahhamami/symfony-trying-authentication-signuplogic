@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Gaming Login Form Responsive Widget Template  :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Gaming Login Form Widget Tab Form,Login Forms,Sign up Forms,Registration Forms,News letter Forms,Elements"/>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); 
+function hideURLbar(){ window.scrollTo(0,1); } ;</script>
+<link href="{{asset('assets/auth/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+<style>
+    .password-container {
+        position: relative;
+    }
+    .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+	<div class="padding-all">
+		<div class="header">
+			<h1><img src="{{asset('assets/auth/images/5.png')}}" alt=" "> Gaming Emperium Sign up Form</h1>
+		</div>
+
+		<div class="design-w3l">
+			<div class="mail-form-agile">
+                {{ form_start(registrationForm) }}
+                    <div class="form-group">
+                        {{ form_widget(registrationForm.firstname, {'attr': {'placeholder': 'First Name', 'required': 'required'}}) }}
+                        {{ form_errors(registrationForm.firstname) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_widget(registrationForm.lastname, {'attr': {'placeholder': 'Last Name', 'required': 'required'}}) }}
+                        {{ form_errors(registrationForm.lastname) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'Email', 'required': 'required'}}) }}
+                        {{ form_errors(registrationForm.email) }}
+                    </div>
+
+                     <div class="form-group password-container">
+                        {{ form_widget(registrationForm.password, {'attr': {'placeholder': 'Password', 'required': 'required'}}) }}
+                        <span class="toggle-password">👁️</span>
+                        {{ form_errors(registrationForm.password) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_widget(registrationForm.cardnum, {'attr': {'placeholder': 'Card Number', 'required': 'required'}}) }}
+                        {{ form_errors(registrationForm.cardnum) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_widget(registrationForm.phone, {'attr': {'placeholder': 'Phone', 'required': 'required'}}) }}
+                        {{ form_errors(registrationForm.phone) }}
+                    </div>
+          
+                    <input type="submit" value="Register">
+                    
+                {{ form_end(registrationForm) }}
+			</div>
+		  <div class="clear"> </div>
+		</div>
+		
+		<div class="footer">
+        <p>Already Signed Up? <a href="{{ path('app_login') }}">Login </a> </p>
+		<p>©2024. All Rights Reserved to H.Sarah </p>
+		</div>
+	</div>
+     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const togglePassword = document.querySelector('.toggle-password');
+            const passwordField = document.querySelector('[name="registration_form[password]"]');
+            
+            togglePassword.addEventListener('click', function () {
+                const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordField.setAttribute('type', type);
+                this.textContent = type === 'password' ? '👁️' : '🙈';
+            });
+        });
+    </script>   
+</body>
+</html>
